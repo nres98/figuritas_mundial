@@ -16,6 +16,7 @@ class Coleccionista {
         edad min:18
         ubicacion nullable:true
     }
+//    static hasMany = [posesionFiguritas: PosesionFigurita, intercambios: Intercambio]
     static hasMany = [posesionFiguritas: PosesionFigurita]
 
     String toString(){
