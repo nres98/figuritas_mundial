@@ -1,1 +1,1 @@
-render Listo
+Se actualizó correctamente la cantidad de figuritas
