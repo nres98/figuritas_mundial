@@ -2,6 +2,8 @@ package figuritas_mundial
 
 import grails.gorm.transactions.Transactional
 import grails.validation.ValidationException
+import io.micronaut.http.annotation.Trace
+
 import static org.springframework.http.HttpStatus.*
 
 class IntercambioController {
@@ -10,21 +12,20 @@ class IntercambioController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-   /* @Transactional
+    @Transactional
     def inicializar_intercambio(Intercambio intercambio){
         def coleccionista1 = intercambio.coleccionista1
-        coleccionista1.addToIntercambios(intercambio)
+        coleccionista1.agregar_intercambio(intercambio)
         coleccionista1.save(flush: true,failOnError: true)
         println("Agregado correctamente 1")
         println(coleccionista1)
         def coleccionista2 = intercambio.coleccionista2
-        coleccionista2.addToIntercambios(intercambio)
+        coleccionista2.agregar_intercambio(intercambio)
         coleccionista2.save(flush: true,failOnError: true)
         println("Agregado correctamente 2")
-        println(coleccionista2)
         intercambio.save(flush: true,failOnError: true)
 
-    }*/
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -38,7 +39,6 @@ class IntercambioController {
     def create() {
         respond new Intercambio(params)
     }
-
     def save(Intercambio intercambio) {
         if (intercambio == null) {
             notFound()
@@ -46,6 +46,7 @@ class IntercambioController {
         }
 
         try {
+
             intercambioService.save(intercambio)
         } catch (ValidationException e) {
             respond intercambio.errors, view:'create'

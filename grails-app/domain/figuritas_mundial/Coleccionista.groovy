@@ -16,8 +16,7 @@ class Coleccionista {
         edad min:18
         ubicacion nullable:true
     }
-//    static hasMany = [posesionFiguritas: PosesionFigurita, intercambios: Intercambio]
-    static hasMany = [posesionFiguritas: PosesionFigurita]
+    static hasMany = [posesionFiguritas: PosesionFigurita, intercambios: Intercambio]
 
     String toString(){
         return nombre
@@ -30,6 +29,12 @@ class Coleccionista {
         def figuritas = Figurita.findAll()
         for (figurita in figuritas) {
             this.addToPosesionFiguritas(new PosesionFigurita(cantidad: 0, figurita: figurita))
+        }
+    }
+    def agregar_intercambio(Intercambio intercambio){
+        println("entro a agregar intercambio")
+        if (!this.intercambios.contains(intercambio) ){
+            this.addToIntercambios(intercambio)
         }
     }
 }
