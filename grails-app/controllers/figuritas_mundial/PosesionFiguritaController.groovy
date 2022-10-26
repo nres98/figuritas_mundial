@@ -16,9 +16,9 @@ class PosesionFiguritaController {
             if (match) {
                 def id = match[0][1] as long
                 def posesionFigurita = PosesionFigurita.get(id)
-                def cantidad = params.get(name) as int
-                posesionFigurita.cantidad = cantidad
-                posesionFigurita.save(flush: true, failOnError: true)
+                def cantidad_nueva = params.get(name) as int
+                posesionFigurita.actualizar_cantidad(cantidad_nueva)
+                posesionFigurita.save(flush: true,failOnError: true)
             }
         }
     }

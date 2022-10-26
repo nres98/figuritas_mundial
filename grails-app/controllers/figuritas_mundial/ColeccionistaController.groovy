@@ -12,14 +12,13 @@ class ColeccionistaController {
 
     @Transactional
     def inicializar_posesion_figuritas(Coleccionista coleccionista){
-        println("Nombre")
-        println(coleccionista.nombre)
-       def figuritas = Figurita.findAll()
-    for (figurita in figuritas) {
-        def posesion = new PosesionFigurita(cantidad: 0, figurita: figurita).save(flush: true, failOnError: true)
-        coleccionista.addToPosesionFiguritas(posesion)
-    }
-        coleccionista.save(flush: true,failOnError: true)
+        coleccionista.inicializar_posesion_figuritas()
+//       def figuritas = Figurita.findAll()
+//    for (figurita in figuritas) {
+//        def posesion = new PosesionFigurita(cantidad: 0, figurita: figurita).save(flush: true, failOnError: true)
+//        coleccionista.addToPosesionFiguritas(posesion)
+//    }
+       coleccionista.save(flush: true,failOnError: true)
 
 }
 
