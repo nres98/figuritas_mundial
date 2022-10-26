@@ -6,4 +6,8 @@ class FiguritaAIntercambiar {
 
     static constraints = {disponible_para_intercambio nullable: false
     }
+
+    def cambiar_disponibilidad(){
+
+    }
 }

@@ -37,5 +37,25 @@ class Coleccionista {
             this.addToIntercambios(intercambio)
         }
     }
+
+    def calcular_match(Coleccionista otro_coleccionista){
+        // Dada la informacion de otro coleccionista, calcula cuantas figuritas pueden intercambiar
+    }
+
+    def porcentaje_competado(){
+        // Devuelve el porcentaje de completitud del album (para cuantas Posesion Figurita tiene más de 1) / Cant de Figuritas
+    }
+
+
+    def ofrecer_intercambio(Intercambio intercambio){
+        // cambia estado de Intercambio a ofrecido
+    }
+    def aceptar_intercambio(Intercambio intercambio){
+        // cambia estado de Intercambio a aceptado y realiza el intercambio de figuritas
+    }
+
+    def rechazar_intercambio(Intercambio intercambio){
+        // cambia estado de Intercambio a rechazado
+    }
 }
 

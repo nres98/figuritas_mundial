@@ -22,6 +22,9 @@ class Intercambio {
 //        coleccionista2.save(flush: true,failOnError: true)
         println("Salio de inicializar")
     }
+    def cambiar_estado() {
+
+    }
 
 
 }
